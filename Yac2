@@ -1,0 +1,40 @@
+import random, json, os
+
+SUJETS = {
+    "tech": [
+        "Le premier site web de l'histoire est toujours en ligne",
+        "3 astuces de code que tout développeur doit connaître",
+        "L'IA qui change la création de contenu en 2026",
+    ],
+    "dev": [
+        "L'histoire secrète de GitHub en 30 secondes",
+        "Pourquoi Python domine l'automatisation",
+    ],
+}
+HOOKS = [
+    "Personne ne te dit ça, mais…",
+    "Stop ! Regarde ça avant de scroller.",
+    "J'aurais voulu le savoir plus tôt :",
+]
+HASHTAGS = ["#tech", "#coding", "#apprendresurtiktok", "#fyp"]
+HISTORIQUE = "historique.json"
+
+def charger():
+    if os.path.exists(HISTORIQUE):
+        return json.load(open(HISTORIQUE))
+    return []
+
+def generer_video():
+    deja_faits = charger()
+    tous = [s for liste in SUJETS.values() for s in liste]
+    dispo = [s for s in tous if s not in deja_faits] or tous
+    sujet = random.choice(dispo)
+    json.dump(deja_faits + [sujet], open(HISTORIQUE, "w"))
+
+    print(f"🎯 Sujet : {sujet}")
+    print(f"🪝 Hook (0-3s) : {random.choice(HOOKS)}")
+    print("📝 Plan : 1) Hook  2) Fait/astuce  3) Explication courte  4) CTA « Abonne-toi pour la suite »")
+    print("🏷️ " + " ".join(HASHTAGS))
+
+if __name__ == "__main__":
+    generer_video()
