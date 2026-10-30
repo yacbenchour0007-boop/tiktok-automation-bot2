@@ -1,8 +1,0 @@
-NICHE = "programmation et culture tech pour débutants francophones"
-PUBLIC = "débutants curieux de 16 à 35 ans"
-# Mets ici un lien d'affiliation vers un outil ou cours que tu utilises vraiment
-LIEN_AFFILIE = ""
-OFFRE = "l'outil que j'utilise pour apprendre à coder"
-HASHTAGS = ["#tech", "#coding", "#dev", "#apprendresurtiktok", "#fyp"]
-DUREE_MIN, DUREE_MAX = 61, 110
-MODELE = "claude-sonnet-5-5"
